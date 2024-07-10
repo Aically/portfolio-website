@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f0f0; /* Added background color */
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        #hero {
+            background: linear-gradient(to right, #3cbde8, #7be2fe);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        #hero .hero-content {
+            max-width: 80%;
+        }
+
+        #hero .hero-content img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: floatAnimation 5s ease-in-out infinite alternate;
+        }
+
+        #hero .hero-text h1 {
+            font-size: 3.5rem;
+            margin: 1.5rem 0;
+            font-weight: 600;
+        }
+
+        #hero .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        #hero .buttons {
+            margin-top: 2rem;
+        }
+
+        #hero .buttons a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background-color: #333;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: 600;
+        }
+
+        #hero .buttons a:hover {
+            background-color: #555;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-left: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                padding: 5rem 1rem;
+            }
+
+            #hero .hero-content {
+                max-width: 100%;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+            #hero .buttons {
+                flex-direction: column;
+            }
+
+            #hero .buttons a {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+
+            .social-icons {
+                margin-top: 1rem;
+            }
+        }
+
+        #about {
+            background-color: #5ef1a5;
+            color: #333;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin-right: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .about-content img:hover {
+            transform: scale(1.1);
+        }
+
+        .about-text {
+            text-align: left;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c1ef3;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #333;
+            font-size: 2rem;
+            margin: 0 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-text {
+                text-align: center;
+                padding: 0 1rem;
+            }
+        }
+
+        #portfolio {
+            background: #f3b6b6;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        #portfolio h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .work {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .work-item {
+            margin: 1.5rem;
+            width: 300px;
+            text-align: center;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .work-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .work-item p {
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        .work-item a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            text-decoration: none;
+            color: #333;
+            background: #eee;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .work-item a:hover {
+            background: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .work-item {
+                width: 100%;
+                margin: 1rem 0.5rem;
+            }
+        }
+
+        #contact {
+            background: #636363;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #fffcfc;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        form input,
+        form textarea,
+        form button {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            width: 100%;
+            border: 1px solid #fa0202;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #333;
+            color: #bebbbb;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        form button:hover {
+            background: #555;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                background: #333;
+                position: absolute;
+                top: 50px;
+                left: -100%;
+                width: 100%;
+                transition: left 0.3s;
+            }
+
+            nav ul li {
+                margin: 0;
+            }
+
+            nav ul li a {
+                padding: 1rem;
+                display: block;
+            }
+
+            nav ul li a:hover {
+                background: #555;
+            }
+
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+
+            nav ul.show {
+                left: 0;
+            }
+
+            #portfolio .work {
+                flex-direction: column;
+            }
+
+            #portfolio .work-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="hero">
+    <div class="hero-content">
+        <img src="pic1.jpg" alt="Profile Picture">
+        <div class="hero-text">
+            <h1>Hi! I'm Andrian Ical</h1>
+            <p>An IT professional with a passion for developing innovative solutions and driving digital transformation. With a strong foundation in software development, cloud computing, and cybersecurity, I thrive in dynamic environments where technology meets creativity.</p>
+            <div class="buttons">
+                <a href="#contact">Hire Me</a>
+                <a href="#" download>Download CV</a>
+            </div>
+        </div>
+    </div>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/andrian.ical.12" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.facebook.com/andrian.ical.12" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="https://github.com/Aically" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="about-container">
+        <div class="about-content">
+            <img src="pic2.jpg" alt="Profile Picture" class="profile-picture">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Hello, I'm Andrian Ical, an IT professional with a passion for creating innovative solutions and driving digital transformation. With a strong foundation in software development, cloud computing, and cybersecurity, I thrive in dynamic environments where technology meets creativity.</p>
+                <p>Throughout my career, I've been dedicated to mastering new technologies and applying them to solve real-world problems. I believe in continuous learning and collaboration to deliver outstanding results.</p>
+                <p>Let's connect and discuss how we can work together to achieve your goals.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/andrian.ical.12" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/andrian.ical.12" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+                    <a href="https://github.com/Aically" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="portfolio">
+    <h2>My Work</h2>
+    <div class="work">
+        <div class="work-item">
+            <img src="image1.png" alt="Project 1">
+            <p>Project 1: Simple Portfolio</p>
+            <a href="https://www.figma.com/proto/6JntFprCyViKfS1t693MyY/Portfolio_ICAL?node-id=1-2&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" target="_blank">View Project</a>
+        </div>
+        <div class="work-item">
+            <img src="image2.png" alt="Project 2">
+            <p>Project 2: Rock-Paper-Scissors</p>
+            <a href="https://aically.github.io/rock-paper-scissor/" target="_blank">View Project</a>
+        </div>
+        <div class="work-item">
+            <img src="image3.png" alt="Project 3">
+            <p>Project 3: Calculator Application</p>
+            <a href="https://aically.github.io/ipt101-calculator-app/" target="_blank">View Project</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Andrian Ical. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const navUl = document.querySelector('nav ul');
+        const menuToggle = document.createElement('div');
+        menuToggle.classList.add('menu-toggle');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.querySelector('nav').appendChild(menuToggle);
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+
+                if (navUl.classList.contains('show')) {
+                    navUl.classList.remove('show');
+                }
+            });
+        });
+
+        menuToggle.addEventListener('click', () => {
+            navUl.classList.toggle('show');
+        });
+    });
+</script>
+
+</body>
+</html>
